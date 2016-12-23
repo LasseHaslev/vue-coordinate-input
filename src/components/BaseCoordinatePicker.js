@@ -41,7 +41,7 @@ export default {
                 return this.hiddenLat;
             },
             set( lat ) {
-                this.hiddenLng = lat;
+                this.hiddenLat = lat;
             },
         },
         lng: {
