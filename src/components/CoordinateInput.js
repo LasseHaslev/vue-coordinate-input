@@ -1,23 +1,20 @@
-import { Geocoder } from '@lassehaslev/vue-geocoder';
-import BaseCoordinateInput from './BaseCoordinateInput';
-import GoogleMap from './GoogleMap';
-import GoogleMapMarker from './GoogleMapMarker';
-export default {
+import CoordinatePicker from './CoordinatePicker';
 
-    mixins: [ BaseCoordinateInput ],
-    
-	template: `
-	    <div>
-            <google-map-marker :lat="lat" :lng="lng" :scope="scope"></google-map-marker>
-        <div :style="{ height:height + 'px' }">
-            <google-map :lat="lat" :lng="lng" :scope="scope" @ready="onMapReady" ref="google-map" :api-key="apiKey"></google-map>
+export default {
+    template: `
+        <div>
+            <coordinate-picker @selected="onSelect" :api-key="apiKey"></coordinate-picker>
         </div>
-            <geocoder @selected="onTrigger" :api-key="apiKey"></geocoder>
-	    </div>
-	`,
+    `,
+
+    props: {
+        'api-key': {
+            type: String,
+            default: null,
+            required: true,
+        },
+    },
     components: {
-        Geocoder,
-        GoogleMap,
-        GoogleMapMarker,
-    }
+        CoordinatePicker,
+    },
 }
