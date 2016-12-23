@@ -6,17 +6,57 @@ export default {
             type: String,
             default: null,
         },
+        scope: {
+            type: Object,
+            required: true,
+        },
+
+        lat: {
+            type: Number,
+            default: 0,
+            required: true,
+        },
+
+        lng: {
+            type: Number,
+            default: 0,
+            required: true,
+        },
+
+        zoom: {
+            type: Number,
+            default: 8,
+        }
+
     },
 
     data() {
         return {
             google:null,
             map:null,
-            lat:61.0638268,
-            lng:6.5696338,
-            zoom:8,
         };
     },
+
+    computed: {
+        position() {
+            return {
+                lat: this.lat,
+                lng: this.lng,
+            }
+        }
+    },
+
+    watch: {
+        position( position ) {
+            this.map.setCenter( position );
+        },
+
+        zoom( zoom ) {
+            this.map.setZoom( zoom );
+        },
+
+    },
+
     mounted() {
         GoogleMapsLoader.KEY = this.apiKey;
         this.loadMap();
@@ -29,11 +69,13 @@ export default {
                 window.google = google;
                 self.$set( self, 'google', google );
                 var map = new google.maps.Map(self.$el, {
-                    center: {lat: self.lat, lng: self.lng },
+                    center: self.position,
                     zoom: self.zoom
                 });
 
-                self.$emit( 'ready', map );
+                self.$emit( 'ready', map, google );
+
+                self.scope.$emit( 'ready', map, google );
 
                 self.$set( self, 'map', map );
 

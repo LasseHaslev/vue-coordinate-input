@@ -14,9 +14,9 @@ export default {
             <section class="hero is-light">
                 <div class="hero-body">
 
-        <div class="container">
-        <coordinate-input api-key=""></coordinate-input>
-        </div>
+                    <div class="container">
+                        <coordinate-input api-key=""></coordinate-input>
+                    </div>
 
                 </div>
             </section>
