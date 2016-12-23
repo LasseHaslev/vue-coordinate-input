@@ -11,15 +11,46 @@ export default {
         height: {
             type: Number,
             default: 300
-        }
+        },
+
+        lat: {
+            type: Number,
+            default: 0,
+            required: true,
+        },
+
+        lng: {
+            type: Number,
+            default: 0,
+            required: true,
+        },
     },
     data() {
         return {
             map: null,
             scope: new Vue(),
 
-            lat:61.0638268,
-            lng:6.5696338,
+            hiddenLat: this.lat,
+            hiddenLng: this.lng,
+        }
+    },
+
+    computed: {
+        lat: {
+            get() {
+                return this.hiddenLat;
+            },
+            set( lat ) {
+                this.hiddenLng = lat;
+            },
+        },
+        lng: {
+            get() {
+                return this.hiddenLng;
+            },
+            set( lng ) {
+                this.hiddenLng = lng;
+            },
         }
     },
 
@@ -31,6 +62,7 @@ export default {
         onTrigger( coordinates ) {
             this.lat = coordinates.lat;
             this.lng = coordinates.lng;
+            this.$emit( 'select', coordinates );
         }
 
     }

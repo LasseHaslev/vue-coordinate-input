@@ -15,7 +15,7 @@ export default {
                 <div class="hero-body">
 
                     <div class="container">
-                        <coordinate-input api-key=""></coordinate-input>
+                        <coordinate-input :lat="61.0638268" :lng="6.5696338" lat-name="lat-name" lng-name="lng-name" api-key=""></coordinate-input>
                     </div>
 
                 </div>
