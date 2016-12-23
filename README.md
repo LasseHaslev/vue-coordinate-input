@@ -1,6 +1,9 @@
-# @lassehaslev/vue-coordinates-input
+# @lassehaslev/vue-coordinate-input
 
 > Coordinates input using Vue
+
+## Installation
+Run ```npm install @lassehaslev/vue-coordinate-input --save``` in your project folder
 
 ## Build Setup
 
