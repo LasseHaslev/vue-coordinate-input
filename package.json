@@ -15,7 +15,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@lassehaslev/vue-geocoder": "^0.0.2",
+    "@lassehaslev/vue-geocoder": "^0.0.3",
     "google-maps": "^3.2.1",
     "vue": "^2.1.0"
   },
