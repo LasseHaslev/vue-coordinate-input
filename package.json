@@ -1,7 +1,7 @@
 {
   "name": "@lassehaslev/vue-coordinate-input",
   "description": "Coordinate input using Vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Lasse S. Haslev <lasse@haslev.no>",
   "main": "dist/index.js",
   "private": false,
