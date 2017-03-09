@@ -3,6 +3,7 @@ import BaseCoordinateInput from './BaseCoordinateInput';
 
 export default {
     mixins: [ BaseCoordinateInput ],
+
     template: `
         <div>
             <coordinate-picker :lat="hiddenLat" :lng="hiddenLng" @select="onSelect" :api-key="apiKey"></coordinate-picker>

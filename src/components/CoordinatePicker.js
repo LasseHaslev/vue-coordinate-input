@@ -5,7 +5,7 @@ import GoogleMapMarker from './GoogleMapMarker';
 export default {
 
     mixins: [ BaseCoordinatePicker ],
-    
+
 	template: `
 	    <div>
             <google-map-marker :lat="lat" :lng="lng" :scope="scope"></google-map-marker>

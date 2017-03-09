@@ -35,25 +35,6 @@ export default {
         }
     },
 
-    computed: {
-        lat: {
-            get() {
-                return this.hiddenLat;
-            },
-            set( lat ) {
-                this.hiddenLat = lat;
-            },
-        },
-        lng: {
-            get() {
-                return this.hiddenLng;
-            },
-            set( lng ) {
-                this.hiddenLng = lng;
-            },
-        }
-    },
-
     methods: {
         onMapReady( map ) {
             this.map = map;
