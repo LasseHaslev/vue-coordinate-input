@@ -8,7 +8,7 @@ export default {
 
 	template: `
 	    <div>
-            <google-map-marker :lat="lat" :lng="lng" :scope="scope"></google-map-marker>
+            <google-map-marker @drop="onTrigger" :draggable="dragMarker" :lat="lat" :lng="lng" :scope="scope"></google-map-marker>
         <div :style="{ height:height + 'px' }">
             <google-map :lat="lat" :lng="lng" :scope="scope" @ready="onMapReady" ref="google-map" :api-key="apiKey"></google-map>
         </div>

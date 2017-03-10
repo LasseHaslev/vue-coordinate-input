@@ -8,6 +8,11 @@ export default {
             default: null,
         },
 
+        'drag-marker': {
+            type: Boolean,
+            default: false,
+        },
+
         height: {
             type: Number,
             default: 300
@@ -44,6 +49,10 @@ export default {
             this.lat = coordinates.lat;
             this.lng = coordinates.lng;
             this.$emit( 'select', coordinates );
+        },
+
+        onMarkerDrop( coordinates ) {
+            this.$emit( 'marker-drop', coordinates );
         }
 
     }

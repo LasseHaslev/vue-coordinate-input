@@ -7,6 +7,11 @@ export default {
             required: true,
         },
 
+        'drag-marker': {
+            type: Boolean,
+            default: false,
+        },
+
         'lat-name': {
             type: String,
             default: 'lat',
@@ -45,5 +50,6 @@ export default {
 
             this.$emit( 'select', coordinates );
         },
+
     },
 }

@@ -8,6 +8,11 @@ export default {
             required: true,
         },
 
+        draggable: {
+            type: Boolean,
+            default: false,
+        },
+
         lat: {
             type: Number,
             default: 0,
@@ -54,7 +59,16 @@ export default {
             this.marker = new google.maps.Marker({
                 position: self.position,
                 map: self.map,
+                draggable: self.draggable,
             });
+            if (this.draggable) {
+                google.maps.event.addListener( this.marker, 'dragend', function( evt ) {
+                    self.$emit( 'drop', {
+                        lat: evt.latLng.lat(),
+                        lng: evt.latLng.lng(),
+                    } );
+                } );
+            }
         },
     }
 }
